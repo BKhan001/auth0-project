@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Sample Pizza App   </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav navbar-nav navbar-left">
+        <a routeLink href="/">Home   ></a>
+      </li>
+      
+      <!-- We are going to use the authService.loggedIn() method to see if the user is logged in or not. If they are not logged in we'll encourage them to login, otherwise if they are logged in, we'll provide a handy link to private deals. We haven't implemented the authService yet, so don't worry about the functionality just yet -->
+    <div class="collapse navbar-collapse" *ngIf="!auth.authenticated()">
+      <div class="nav navbar-nav navbar-right">
+        <a href="#" (click)="auth.login()"> Login   ></a>
+    </div>
+    </div>
+
+    <div class="collapse navbar-collapse" *ngIf="!auth.authenticated()">
+      <div class="nav navbar-nav navbar-right">
+        <a routeLink href="/profile"> Profile   ></a>
+    </div>
+    </div>
+
+    <div class="collapse navbar-collapse" *ngIf="!auth.authenticated()">
+      <div class="nav navbar-nav navbar-right">
+        <a href="/" (click)="auth.logout()"> Logout</a>
+    </div>
+    </div>
+</ul>
+      
+  </div>
+</nav>
+
+<main role="main" class="container">
+
+      <router-outlet></router-outlet>
+      <IMG SRC="https://s3.envato.com/files/180462494/preview.jpg"> 
+      
+
+    
+</main><!-- /.container -->
+
